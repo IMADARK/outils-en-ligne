@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolBox - Outils Utiles</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #0a0a14;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* PARTICULES DE FOND */
+        #particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .particle {
+            position: absolute; border-radius: 50%; opacity: 0.15;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* GLOW BLOB */
+        .glow-blob {
+            position: fixed; width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(102,126,234,0.08), transparent 70%);
+            pointer-events: none; z-index: 0;
+            top: 20%; left: 50%; transform: translate(-50%,-50%);
+            animation: blobMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes blobMove {
+            0% { top: 20%; left: 30%; }
+            50% { top: 60%; left: 70%; }
+            100% { top: 30%; left: 50%; }
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 50px 20px 10px;
+            position: relative; z-index: 1;
+        }
+        header h1 {
+            font-size: 3rem; font-weight: 800; letter-spacing: -1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        @keyframes titleGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+        header p { color: #666; margin-top: 8px; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* MENU */
+        #menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px 40px;
+            position: relative; z-index: 1;
+        }
+        .menu-btn {
+            background: rgba(20,20,40,0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 18px;
+            padding: 28px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: cardIn 0.5s ease-out both;
+        }
+        .menu-btn::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-btn:hover::before { opacity: 1; }
+        .menu-btn:hover {
+            border-color: rgba(102,126,234,0.5);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(102,126,234,0.15), 0 0 0 1px rgba(102,126,234,0.1);
+        }
+        .menu-btn:active { transform: translateY(-2px) scale(0.98); }
+        .menu-btn .icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
+        .menu-btn .label { font-size: 0.95rem; font-weight: 600; color: #ccc; }
+        .menu-btn:nth-child(1) { animation-delay: 0s; }
+        .menu-btn:nth-child(2) { animation-delay: 0.05s; }
+        .menu-btn:nth-child(3) { animation-delay: 0.1s; }
+        .menu-btn:nth-child(4) { animation-delay: 0.15s; }
+        .menu-btn:nth-child(5) { animation-delay: 0.2s; }
+        .menu-btn:nth-child(6) { animation-delay: 0.25s; }
+        .menu-btn:nth-child(7) { animation-delay: 0.3s; }
+        .menu-btn:nth-child(8) { animation-delay: 0.35s; }
+        .menu-btn:nth-child(9) { animation-delay: 0.4s; }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* FULLSCREEN BTN */
+        .fullscreen-btn {
+            position: fixed; top: 16px; right: 16px; z-index: 10;
+            background: rgba(20,20,40,0.7); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1); color: #aaa;
+            width: 42px; height: 42px; border-radius: 12px;
+            cursor: pointer; font-size: 1.3rem; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .fullscreen-btn:hover { border-color: #667eea; color: #fff; }
+
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 40px 20px;
+            color: #333; font-size: 0.8rem;
+            position: relative; z-index: 1;
+        }
+        footer a { color: #667eea; text-decoration: none; }
+
+        /* PAGES */
+        .page {
+            display: none; max-width: 800px; margin: 0 auto; padding: 20px;
+            position: relative; z-index: 1;
+            animation: pageIn 0.3s ease-out;
+        }
+        .page.active { display: block; }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .back-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #aaa;
+            padding: 8px 20px; border-radius: 10px; cursor: pointer;
+            margin-bottom: 24px; font-size: 0.9rem; transition: all 0.2s;
+        }
+        .back-btn:hover { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.1); }
+        .page h2 { font-size: 1.8rem; margin-bottom: 24px; text-align: center; font-weight: 700; }
+
+        /* INPUTS */
+        input[type="text"], input[type="number"], textarea {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.1); color: #fff;
+            padding: 12px 16px; border-radius: 10px; font-size: 1rem; width: 100%;
+            font-family: inherit; transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.15); }
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none; color: #fff; padding: 12px 28px;
+            border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600;
+            transition: all 0.2s; font-family: inherit;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
+        .btn:active { transform: translateY(0); }
+        .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); box-shadow: 0 4px 15px rgba(231,76,60,0.3); }
+        .btn-sm { padding: 8px 18px; font-size: 0.85rem; }
+        .btn-outline {
+            background: transparent; border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: none; color: #ccc;
+        }
+        .btn-outline:hover { border-color: #667eea; color: #fff; box-shadow: none; }
+
+        /* === ROUE === */
+        #wheel-container { text-align: center; }
+        #wheel-inputs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        #wheel-inputs input { flex: 1; min-width: 150px; }
+        #wheel-items { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .wheel-item {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px;
+            border-radius: 20px; display: flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+        .wheel-item:hover { border-color: rgba(231,76,60,0.5); }
+        .wheel-item button {
+            background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 1.1rem;
+        }
+        #wheel-canvas-wrap { position: relative; display: inline-block; margin: 20px 0; }
+        #wheelCanvas { max-width: 100%; }
+        #wheel-pointer {
+            position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+            font-size: 2rem; z-index: 2; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+        #wheel-result {
+            font-size: 1.6rem; font-weight: 700; margin-top: 16px;
+            min-height: 40px; color: #f093fb;
+        }
+
+        /* === PSEUDO === */
+        #pseudo-result {
+            font-size: 2rem; text-align: center; margin: 30px 0;
+            padding: 24px; background: rgba(20,20,40,0.8); border-radius: 14px;
+            word-break: break-all; border: 1px solid rgba(255,255,255,0.06);
+            transition: border-color 0.3s;
+        }
+        .pseudo-options { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+        .pseudo-options label { display: flex; align-items: center; gap: 6px; cursor: pointer; color: #aaa; }
+        .pseudo-options input[type="checkbox"] { accent-color: #667eea; width: 18px; height: 18px; }
+
+        /* === DE === */
+        #dice-container { text-align: center; }
+        #dice-display {
+            font-size: 5rem; margin: 30px 0;
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+        }
+        .dice-face {
+            width: 100px; height: 100px; background: rgba(20,20,40,0.8);
+            border: 2px solid #667eea; border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: 700;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(102,126,234,0.2);
+        }
+        .dice-face.rolling { animation: diceRoll 0.1s infinite; }
+        @keyframes diceRoll { 0%{transform:rotate(0)} 50%{transform:rotate(10deg)} 100%{transform:rotate(-10deg)} }
+        .dice-config { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .dice-config label { color: #888; }
+
+        /* === CHRONO === */
+        #chrono-container { text-align: center; }
+        #chrono-display {
+            font-size: 3.5rem; font-family: 'Courier New', monospace;
+            margin: 40px 0; letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(102,126,234,0.3);
+        }
+        #chrono-laps { margin-top: 20px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .lap-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; color: #888; }
+        .chrono-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+        /* === TIMER === */
+        #timer-container { text-align: center; }
+        #timer-display {
+            font-size: 3.5rem; font-family: 'Courier New', monospace;
+            margin: 40px 0; letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(102,126,234,0.3);
+        }
+        #timer-display.done { color: #e74c3c; animation: pulse 0.5s infinite alternate; text-shadow: 0 0 30px rgba(231,76,60,0.5); }
+        @keyframes pulse { from{opacity:1} to{opacity:0.3} }
+        .timer-inputs { display: flex; gap: 10px; justify-content: center; align-items: center; margin-bottom: 20px; }
+        .timer-inputs input { width: 80px; text-align: center; }
+        .timer-inputs span { color: #666; font-weight: 600; }
+
+        /* === PILE OU FACE === */
+        #coin-container { text-align: center; }
+        .coin-el {
+            width: 160px; height: 160px; border-radius: 50%;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; font-weight: 700; color: #222;
+            margin: 40px auto; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(241,196,15,0.3);
+            transition: transform 0.2s;
+        }
+        .coin-el:hover { transform: scale(1.05); }
+        .coin-el.flip { animation: coinFlip 0.6s; }
+        @keyframes coinFlip {
+            0%{transform:rotateY(0)} 50%{transform:rotateY(900deg) scale(0.8)} 100%{transform:rotateY(1800deg)}
+        }
+        #coin-history { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .coin-h { padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .coin-pile { background: #f1c40f; color: #222; }
+        .coin-face { background: #3498db; color: #fff; }
+
+        /* === NOMBRE ALEATOIRE === */
+        #random-container { text-align: center; }
+        #random-result {
+            font-size: 5rem; font-weight: 800; margin: 40px 0;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            min-height: 80px;
+        }
+        .random-config { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .random-config label { color: #888; }
+        .random-config input { width: 100px; text-align: center; }
+
+        /* === NOTES === */
+        #notes-container {}
+        #notes-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .note-card {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px; padding: 16px; position: relative;
+            transition: border-color 0.2s;
+        }
+        .note-card:hover { border-color: rgba(102,126,234,0.3); }
+        .note-card .note-text { white-space: pre-wrap; line-height: 1.6; color: #ccc; }
+        .note-card .note-date { font-size: 0.75rem; color: #555; margin-top: 8px; }
+        .note-card .note-del {
+            position: absolute; top: 10px; right: 14px;
+            background: none; border: none; color: #555; cursor: pointer; font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        .note-card .note-del:hover { color: #e74c3c; }
+        #note-input { min-height: 100px; resize: vertical; }
+        .notes-actions { display: flex; gap: 10px; margin-top: 12px; }
+        .note-empty { text-align: center; color: #444; padding: 40px 0; }
+
+        /* === MOT DE PASSE === */
+        #password-container { text-align: center; }
+        #password-result {
+            font-size: 1.6rem; font-family: 'Courier New', monospace;
+            text-align: center; margin: 30px 0;
+            padding: 24px; background: rgba(20,20,40,0.8); border-radius: 14px;
+            word-break: break-all; border: 1px solid rgba(255,255,255,0.06);
+            letter-spacing: 2px; user-select: all;
+            transition: border-color 0.3s;
+        }
+        .password-options { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+        .password-options label { display: flex; align-items: center; gap: 6px; cursor: pointer; color: #aaa; }
+        .password-options input[type="checkbox"] { accent-color: #667eea; width: 18px; height: 18px; }
+        #password-strength {
+            height: 6px; border-radius: 3px; margin: 0 auto 20px;
+            max-width: 300px; background: rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        #password-strength-bar { height: 100%; border-radius: 3px; transition: all 0.4s; width: 0; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            #menu { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .menu-btn { padding: 20px 12px; }
+            .menu-btn .icon { font-size: 1.8rem; }
+            .menu-btn .label { font-size: 0.85rem; }
+            #chrono-display, #timer-display { font-size: 2.2rem; }
+            #random-result { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="fullscreen-btn" onclick="toggleFullscreen()" title="Plein ecran">⛶</button>
+<div id="particles"></div>
+<div class="glow-blob"></div>
+
+<!-- MENU PRINCIPAL -->
+<div id="home">
+    <header>
+        <h1>ToolBox</h1>
+        <p>Tes outils pratiques au meme endroit</p>
+    </header>
+    <div id="menu">
+        <div class="menu-btn" onclick="showPage('wheel')">
+            <span class="icon">🎡</span>
+            <div class="label">Roue</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('pseudo')">
+            <span class="icon">🎮</span>
+            <div class="label">Generateur de Pseudo</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('dice')">
+            <span class="icon">🎲</span>
+            <div class="label">De Personnalise</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('chrono')">
+            <span class="icon">⏱️</span>
+            <div class="label">Chronometre</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('timer')">
+            <span class="icon">⏳</span>
+            <div class="label">Minuteur</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('coin')">
+            <span class="icon">🪙</span>
+            <div class="label">Pile ou Face</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('random')">
+            <span class="icon">🔢</span>
+            <div class="label">Nombre Aleatoire</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('notes')">
+            <span class="icon">📝</span>
+            <div class="label">Notes Rapides</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('password')">
+            <span class="icon">🔐</span>
+            <div class="label">Mot de Passe</div>
+        </div>
+    </div>
+    <footer>
+        Fait avec ❤️ &mdash; ToolBox 2025
+    </footer>
+</div>
+
+<!-- ROUE -->
+<div id="wheel" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🎡 Roue</h2>
+    <div id="wheel-container">
+        <div id="wheel-inputs">
+            <input type="text" id="wheel-input" placeholder="Ajouter un element..." onkeydown="if(event.key==='Enter')addWheelItem()">
+            <button class="btn btn-sm" onclick="addWheelItem()">Ajouter</button>
+            <button class="btn btn-sm btn-danger" onclick="clearWheel()">Vider</button>
+        </div>
+        <div id="wheel-items"></div>
+        <div id="wheel-canvas-wrap">
+            <div id="wheel-pointer">▼</div>
+            <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        </div>
+        <br>
+        <button class="btn" onclick="spinWheel()" id="spin-btn">Tourner !</button>
+        <div id="wheel-result"></div>
+    </div>
+</div>
+
+<!-- PSEUDO -->
+<div id="pseudo" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🎮 Generateur de Pseudo</h2>
+    <div class="pseudo-options">
+        <label><input type="checkbox" id="pseudo-num" checked> Chiffres</label>
+        <label><input type="checkbox" id="pseudo-special"> Caracteres speciaux</label>
+        <label><input type="checkbox" id="pseudo-upper" checked> Majuscules</label>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:20px">
+        <label style="color:#888">Longueur:</label>
+        <input type="number" id="pseudo-len" value="8" min="3" max="20" style="width:70px;text-align:center">
+    </div>
+    <div style="text-align:center">
+        <button class="btn" onclick="generatePseudo()">Generer</button>
+        <button class="btn btn-sm btn-outline" onclick="copyPseudo()" style="margin-left:8px">Copier</button>
+    </div>
+    <div id="pseudo-result">Clique sur Generer !</div>
+</div>
+
+<!-- DE -->
+<div id="dice" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🎲 De Personnalise</h2>
+    <div id="dice-container">
+        <div class="dice-config">
+            <label>Nombre de des:</label>
+            <input type="number" id="dice-count" value="1" min="1" max="10" style="width:60px;text-align:center">
+            <label>Faces:</label>
+            <input type="number" id="dice-faces" value="6" min="2" max="100" style="width:70px;text-align:center">
+        </div>
+        <button class="btn" onclick="rollDice()">Lancer !</button>
+        <div id="dice-display"></div>
+        <div id="dice-total" style="font-size:1.2rem;color:#888;margin-top:10px"></div>
+    </div>
+</div>
+
+<!-- CHRONO -->
+<div id="chrono" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>⏱️ Chronometre</h2>
+    <div id="chrono-container">
+        <div id="chrono-display">00:00:00.000</div>
+        <div class="chrono-btns">
+            <button class="btn" id="chrono-start" onclick="chronoStart()">Demarrer</button>
+            <button class="btn btn-sm btn-outline" onclick="chronoLap()">Tour</button>
+            <button class="btn btn-sm btn-danger" onclick="chronoReset()">Reset</button>
+        </div>
+        <div id="chrono-laps"></div>
+    </div>
+</div>
+
+<!-- TIMER -->
+<div id="timer" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>⏳ Minuteur</h2>
+    <div id="timer-container">
+        <div class="timer-inputs">
+            <input type="number" id="timer-h" value="0" min="0" max="23" style="width:60px;text-align:center">
+            <span>h</span>
+            <input type="number" id="timer-m" value="5" min="0" max="59" style="width:60px;text-align:center">
+            <span>min</span>
+            <input type="number" id="timer-s" value="0" min="0" max="59" style="width:60px;text-align:center">
+            <span>sec</span>
+        </div>
+        <div id="timer-display">00:05:00</div>
+        <div class="chrono-btns">
+            <button class="btn" id="timer-start" onclick="timerToggle()">Demarrer</button>
+            <button class="btn btn-sm btn-danger" onclick="timerReset()">Reset</button>
+        </div>
+    </div>
+</div>
+
+<!-- PILE OU FACE -->
+<div id="coin" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🪙 Pile ou Face</h2>
+    <div id="coin-container">
+        <div class="coin-el" id="coin-el" onclick="flipCoin()">Clique !</div>
+        <button class="btn" onclick="flipCoin()">Lancer</button>
+        <div id="coin-history"></div>
+        <div id="coin-stats" style="color:#666;margin-top:12px"></div>
+    </div>
+</div>
+
+<!-- NOMBRE ALEATOIRE -->
+<div id="random" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🔢 Nombre Aleatoire</h2>
+    <div id="random-container">
+        <div class="random-config">
+            <label>Min:</label>
+            <input type="number" id="random-min" value="1">
+            <label>Max:</label>
+            <input type="number" id="random-max" value="100">
+        </div>
+        <button class="btn" onclick="generateRandom()">Generer</button>
+        <div id="random-result">?</div>
+    </div>
+</div>
+
+<!-- NOTES RAPIDES -->
+<div id="notes" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📝 Notes Rapides</h2>
+    <div id="notes-container">
+        <textarea id="note-input" placeholder="Ecris ta note ici..."></textarea>
+        <div class="notes-actions">
+            <button class="btn" onclick="addNote()">Ajouter</button>
+            <button class="btn btn-sm btn-danger" onclick="clearNotes()">Tout supprimer</button>
+        </div>
+        <div id="notes-list" style="margin-top:24px"></div>
+    </div>
+</div>
+
+<!-- MOT DE PASSE -->
+<div id="password" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🔐 Generateur de Mot de Passe</h2>
+    <div id="password-container">
+        <div class="password-options">
+            <label><input type="checkbox" id="pw-lower" checked> Minuscules</label>
+            <label><input type="checkbox" id="pw-upper" checked> Majuscules</label>
+            <label><input type="checkbox" id="pw-num" checked> Chiffres</label>
+            <label><input type="checkbox" id="pw-sym" checked> Symboles</label>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:20px">
+            <label style="color:#888">Longueur:</label>
+            <input type="number" id="pw-len" value="16" min="4" max="64" style="width:80px;text-align:center" oninput="generatePassword()">
+        </div>
+        <div id="password-strength"><div id="password-strength-bar"></div></div>
+        <div id="password-result">Clique sur Generer !</div>
+        <div style="margin-top:20px">
+            <button class="btn" onclick="generatePassword()">Generer</button>
+            <button class="btn btn-sm btn-outline" onclick="copyPassword()" style="margin-left:8px">Copier</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// === FULLSCREEN ===
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// === PARTICULES ===
+(function() {
+    const container = document.getElementById('particles');
+    const colors = ['#667eea','#764ba2','#f093fb','#4facfe'];
+    for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(p);
+    }
+})();
+
+// === NAVIGATION ===
+function showPage(id) {
+    document.getElementById('home').style.display = 'none';
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+function goHome() {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('home').style.display = '';
+}
+
+// === ROUE ===
+let wheelItems = [];
+let wheelAngle = 0;
+let wheelSpinning = false;
+
+function addWheelItem() {
+    const inp = document.getElementById('wheel-input');
+    const val = inp.value.trim();
+    if (!val) return;
+    wheelItems.push(val);
+    inp.value = '';
+    renderWheelItems();
+    drawWheel();
+}
+
+function removeWheelItem(i) {
+    wheelItems.splice(i, 1);
+    renderWheelItems();
+    drawWheel();
+}
+
+function clearWheel() {
+    wheelItems = [];
+    renderWheelItems();
+    drawWheel();
+    document.getElementById('wheel-result').textContent = '';
+}
+
+function renderWheelItems() {
+    const c = document.getElementById('wheel-items');
+    c.innerHTML = wheelItems.map((item, i) =>
+        `<div class="wheel-item"><span>${item}</span><button onclick="removeWheelItem(${i})">×</button></div>`
+    ).join('');
+}
+
+const WHEEL_COLORS = ['#667eea','#764ba2','#e74c3c','#2ecc71','#f39c12','#1abc9c','#e84393','#00b894','#6c5ce7','#fdcb6e','#00cec9','#d63031'];
+
+function drawWheel(highlight = -1) {
+    const canvas = document.getElementById('wheelCanvas');
+    const ctx = canvas.getContext('2d');
+    const cx = 200, cy = 200, r = 180;
+    ctx.clearRect(0, 0, 400, 400);
+
+    if (wheelItems.length === 0) {
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fillStyle = '#141428'; ctx.fill();
+        ctx.strokeStyle = '#222'; ctx.lineWidth = 3; ctx.stroke();
+        ctx.fillStyle = '#444'; ctx.font = '16px Inter, Segoe UI';
+        ctx.textAlign = 'center'; ctx.fillText('Ajoute des elements !', cx, cy);
+        return;
+    }
+
+    const n = wheelItems.length;
+    const arc = (Math.PI * 2) / n;
+
+    for (let i = 0; i < n; i++) {
+        const startAngle = wheelAngle + i * arc;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, startAngle, startAngle + arc);
+        ctx.closePath();
+        ctx.fillStyle = i === highlight ? '#fff' : WHEEL_COLORS[i % WHEEL_COLORS.length];
+        ctx.fill();
+        ctx.strokeStyle = '#0a0a14'; ctx.lineWidth = 2; ctx.stroke();
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(startAngle + arc / 2);
+        ctx.fillStyle = i === highlight ? '#000' : '#fff';
+        ctx.font = 'bold 14px Inter, Segoe UI';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const text = wheelItems[i].length > 12 ? wheelItems[i].slice(0, 11) + '...' : wheelItems[i];
+        ctx.fillText(text, r * 0.6, 0);
+        ctx.restore();
+    }
+
+    ctx.beginPath(); ctx.arc(cx, cy, 20, 0, Math.PI * 2);
+    ctx.fillStyle = '#0a0a14'; ctx.fill();
+    ctx.strokeStyle = '#667eea'; ctx.lineWidth = 3; ctx.stroke();
+}
+
+function spinWheel() {
+    if (wheelSpinning || wheelItems.length < 2) return;
+    wheelSpinning = true;
+    document.getElementById('spin-btn').textContent = '...';
+    document.getElementById('wheel-result').textContent = '';
+
+    const totalRotation = Math.PI * 2 * (5 + Math.random() * 5);
+    const duration = 4000;
+    const start = performance.now();
+    const startAngle = wheelAngle;
+
+    function animate(now) {
+        const elapsed = now - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        wheelAngle = startAngle + totalRotation * ease;
+        drawWheel();
+        if (t < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            wheelSpinning = false;
+            document.getElementById('spin-btn').textContent = 'Tourner !';
+            const n = wheelItems.length;
+            const arc = (Math.PI * 2) / n;
+            const normalized = ((Math.PI * 2) - (wheelAngle % (Math.PI * 2)) + (Math.PI * 2)) % (Math.PI * 2);
+            const pointerAngle = (3 * Math.PI / 2 + normalized) % (Math.PI * 2);
+            const idx = Math.floor(pointerAngle / arc) % n;
+            document.getElementById('wheel-result').textContent = '🎉 ' + wheelItems[idx] + ' !';
+            drawWheel(idx);
+        }
+    }
+    requestAnimationFrame(animate);
+}
+
+drawWheel();
+
+// === PSEUDO ===
+function generatePseudo() {
+    const len = parseInt(document.getElementById('pseudo-len').value) || 8;
+    const useNum = document.getElementById('pseudo-num').checked;
+    const useSpec = document.getElementById('pseudo-special').checked;
+    const useUpper = document.getElementById('pseudo-upper').checked;
+
+    const adjectives = ['Shadow','Dark','Fire','Ice','Storm','Night','Cyber','Neo','Star','Thunder','Silver','Iron','Swift','Wild','Alpha','Blaze','Ghost','Toxic','Ultra','Zen'];
+    const nouns = ['Wolf','Dragon','Hawk','Tiger','Viper','Ninja','Knight','Phoenix','Titan','Raven','Fox','Lion','Bear','Shark','Panther','Cobra','Falcon','Reaper','Sage','Fury'];
+
+    let pseudo = adjectives[Math.floor(Math.random()*adjectives.length)] + nouns[Math.floor(Math.random()*nouns.length)];
+
+    if (useNum) pseudo += Math.floor(Math.random() * 900 + 100);
+    if (useSpec) pseudo += ['_','!','x','.','-'][Math.floor(Math.random()*5)];
+    if (useUpper) pseudo = pseudo.charAt(0).toUpperCase() + pseudo.slice(1);
+    else pseudo = pseudo.toLowerCase();
+
+    if (pseudo.length > len) pseudo = pseudo.slice(0, len);
+
+    document.getElementById('pseudo-result').textContent = pseudo;
+}
+
+function copyPseudo() {
+    const text = document.getElementById('pseudo-result').textContent;
+    if (text && text !== 'Clique sur Generer !') {
+        navigator.clipboard.writeText(text);
+        const el = document.getElementById('pseudo-result');
+        el.style.borderColor = '#2ecc71';
+        setTimeout(() => el.style.borderColor = '', 800);
+    }
+}
+
+// === DE ===
+function rollDice() {
+    const count = parseInt(document.getElementById('dice-count').value) || 1;
+    const faces = parseInt(document.getElementById('dice-faces').value) || 6;
+    const display = document.getElementById('dice-display');
+    const totalEl = document.getElementById('dice-total');
+
+    let rolls = [];
+    for (let i = 0; i < count; i++) rolls.push(0);
+
+    display.innerHTML = rolls.map(() => `<div class="dice-face rolling">?</div>`).join('');
+
+    let ticks = 0;
+    const interval = setInterval(() => {
+        ticks++;
+        rolls = rolls.map(() => Math.floor(Math.random() * faces) + 1);
+        display.querySelectorAll('.dice-face').forEach((el, i) => el.textContent = rolls[i]);
+        if (ticks > 15) {
+            clearInterval(interval);
+            display.querySelectorAll('.dice-face').forEach(el => el.classList.remove('rolling'));
+            if (count > 1) totalEl.textContent = 'Total: ' + rolls.reduce((a,b) => a+b, 0);
+            else totalEl.textContent = '';
+        }
+    }, 80);
+}
+
+// === CHRONO ===
+let chronoInterval = null;
+let chronoTime = 0;
+let chronoRunning = false;
+let chronoLaps = [];
+
+function chronoFormat(ms) {
+    const h = Math.floor(ms / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    const s = Math.floor((ms % 60000) / 1000);
+    const mil = ms % 1000;
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${String(mil).padStart(3,'0')}`;
+}
+
+function chronoStart() {
+    if (chronoRunning) {
+        chronoRunning = false;
+        clearInterval(chronoInterval);
+        document.getElementById('chrono-start').textContent = 'Reprendre';
+    } else {
+        chronoRunning = true;
+        document.getElementById('chrono-start').textContent = 'Pause';
+        const startTs = performance.now() - chronoTime;
+        chronoInterval = setInterval(() => {
+            chronoTime = performance.now() - startTs;
+            document.getElementById('chrono-display').textContent = chronoFormat(Math.floor(chronoTime));
+        }, 10);
+    }
+}
+
+function chronoLap() {
+    if (!chronoRunning) return;
+    chronoLaps.push(chronoTime);
+    const lapsEl = document.getElementById('chrono-laps');
+    lapsEl.innerHTML = chronoLaps.map((t, i) =>
+        `<div class="lap-item"><span>Tour ${i+1}</span><span>${chronoFormat(Math.floor(t))}</span></div>`
+    ).join('');
+}
+
+function chronoReset() {
+    chronoRunning = false;
+    clearInterval(chronoInterval);
+    chronoTime = 0;
+    chronoLaps = [];
+    document.getElementById('chrono-display').textContent = '00:00:00.000';
+    document.getElementById('chrono-start').textContent = 'Demarrer';
+    document.getElementById('chrono-laps').innerHTML = '';
+}
+
+// === TIMER ===
+let timerInterval = null;
+let timerRemaining = 0;
+let timerRunning = false;
+
+function timerUpdateDisplay() {
+    const t = Math.max(0, timerRemaining);
+    const h = Math.floor(t / 3600);
+    const m = Math.floor((t % 3600) / 60);
+    const s = t % 60;
+    document.getElementById('timer-display').textContent =
+        `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+function timerToggle() {
+    if (timerRunning) {
+        timerRunning = false;
+        clearInterval(timerInterval);
+        document.getElementById('timer-start').textContent = 'Reprendre';
+    } else {
+        if (timerRemaining <= 0) {
+            const h = parseInt(document.getElementById('timer-h').value) || 0;
+            const m = parseInt(document.getElementById('timer-m').value) || 0;
+            const s = parseInt(document.getElementById('timer-s').value) || 0;
+            timerRemaining = h * 3600 + m * 60 + s;
+            if (timerRemaining <= 0) return;
+        }
+        timerRunning = true;
+        document.getElementById('timer-start').textContent = 'Pause';
+        document.getElementById('timer-display').classList.remove('done');
+        timerInterval = setInterval(() => {
+            timerRemaining--;
+            timerUpdateDisplay();
+            if (timerRemaining <= 0) {
+                clearInterval(timerInterval);
+                timerRunning = false;
+                document.getElementById('timer-display').classList.add('done');
+                document.getElementById('timer-start').textContent = 'Demarrer';
+            }
+        }, 1000);
+    }
+}
+
+function timerReset() {
+    timerRunning = false;
+    clearInterval(timerInterval);
+    const h = parseInt(document.getElementById('timer-h').value) || 0;
+    const m = parseInt(document.getElementById('timer-m').value) || 0;
+    const s = parseInt(document.getElementById('timer-s').value) || 0;
+    timerRemaining = h * 3600 + m * 60 + s;
+    timerUpdateDisplay();
+    document.getElementById('timer-start').textContent = 'Demarrer';
+    document.getElementById('timer-display').classList.remove('done');
+}
+
+timerUpdateDisplay();
+
+// === PILE OU FACE ===
+let coinResults = [];
+
+function flipCoin() {
+    const coinEl = document.getElementById('coin-el');
+    coinEl.classList.remove('flip');
+    void coinEl.offsetWidth;
+    coinEl.classList.add('flip');
+
+    setTimeout(() => {
+        const result = Math.random() < 0.5 ? 'Pile' : 'Face';
+        coinEl.textContent = result;
+        coinEl.classList.remove('flip');
+        coinResults.push(result);
+
+        const histEl = document.getElementById('coin-history');
+        histEl.innerHTML = coinResults.slice(-20).map(r =>
+            `<span class="coin-h ${r === 'Pile' ? 'coin-pile' : 'coin-face'}">${r}</span>`
+        ).join('');
+
+        const piles = coinResults.filter(r => r === 'Pile').length;
+        const faces = coinResults.length - piles;
+        document.getElementById('coin-stats').textContent = `Pile: ${piles} | Face: ${faces} (${coinResults.length} lancers)`;
+    }, 600);
+}
+
+// === NOMBRE ALEATOIRE ===
+function generateRandom() {
+    const min = parseInt(document.getElementById('random-min').value) || 0;
+    const max = parseInt(document.getElementById('random-max').value) || 100;
+    const result = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    const el = document.getElementById('random-result');
+    let ticks = 0;
+    const interval = setInterval(() => {
+        ticks++;
+        el.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (ticks > 12) {
+            clearInterval(interval);
+            el.textContent = result;
+        }
+    }, 60);
+}
+
+// === NOTES RAPIDES ===
+let notes = JSON.parse(localStorage.getItem('toolbox-notes') || '[]');
+
+function renderNotes() {
+    const list = document.getElementById('notes-list');
+    if (notes.length === 0) {
+        list.innerHTML = '<div class="note-empty">Aucune note pour le moment</div>';
+        return;
+    }
+    list.innerHTML = notes.map((n, i) =>
+        `<div class="note-card">
+            <button class="note-del" onclick="deleteNote(${i})">×</button>
+            <div class="note-text">${escapeHtml(n.text)}</div>
+            <div class="note-date">${n.date}</div>
+        </div>`
+    ).join('');
+}
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function addNote() {
+    const inp = document.getElementById('note-input');
+    const text = inp.value.trim();
+    if (!text) return;
+    notes.unshift({ text, date: new Date().toLocaleString('fr-FR') });
+    localStorage.setItem('toolbox-notes', JSON.stringify(notes));
+    inp.value = '';
+    renderNotes();
+}
+
+function deleteNote(i) {
+    notes.splice(i, 1);
+    localStorage.setItem('toolbox-notes', JSON.stringify(notes));
+    renderNotes();
+}
+
+function clearNotes() {
+    notes = [];
+    localStorage.setItem('toolbox-notes', JSON.stringify(notes));
+    renderNotes();
+}
+
+renderNotes();
+
+// === MOT DE PASSE ===
+function generatePassword() {
+    const len = parseInt(document.getElementById('pw-len').value) || 16;
+    const useLower = document.getElementById('pw-lower').checked;
+    const useUpper = document.getElementById('pw-upper').checked;
+    const useNum = document.getElementById('pw-num').checked;
+    const useSym = document.getElementById('pw-sym').checked;
+
+    let chars = '';
+    if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+    if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (useNum) chars += '0123456789';
+    if (useSym) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+    if (!chars) { chars = 'abcdefghijklmnopqrstuvwxyz'; }
+
+    let pw = '';
+    const array = new Uint32Array(len);
+    crypto.getRandomValues(array);
+    for (let i = 0; i < len; i++) {
+        pw += chars[array[i] % chars.length];
+    }
+
+    document.getElementById('password-result').textContent = pw;
+
+    const bar = document.getElementById('password-strength-bar');
+    let score = 0;
+    if (len >= 8) score++;
+    if (len >= 12) score++;
+    if (len >= 16) score++;
+    if (useLower && useUpper) score++;
+    if (useNum) score++;
+    if (useSym) score++;
+    const pct = Math.min(100, (score / 6) * 100);
+    bar.style.width = pct + '%';
+    if (pct < 40) bar.style.background = '#e74c3c';
+    else if (pct < 70) bar.style.background = '#f39c12';
+    else bar.style.background = '#2ecc71';
+}
+
+function copyPassword() {
+    const text = document.getElementById('password-result').textContent;
+    if (text && text !== 'Clique sur Generer !') {
+        navigator.clipboard.writeText(text);
+        const el = document.getElementById('password-result');
+        el.style.borderColor = '#2ecc71';
+        setTimeout(() => el.style.borderColor = '', 800);
+    }
+}
+</script>
+
+</body>
+</html>
