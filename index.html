@@ -795,11 +795,11 @@
     <h2>📏 Convertisseur</h2>
     <div id="convert-container">
         <div class="convert-tabs">
-            <span class="convert-tab active" onclick="setConvertType('length')">Longueur</span>
-            <span class="convert-tab" onclick="setConvertType('weight')">Poids</span>
-            <span class="convert-tab" onclick="setConvertType('temp')">Temperature</span>
-            <span class="convert-tab" onclick="setConvertType('time')">Temps</span>
-            <span class="convert-tab" onclick="setConvertType('data')">Donnees</span>
+            <span class="convert-tab active" onclick="setConvertType('length',this)">Longueur</span>
+            <span class="convert-tab" onclick="setConvertType('weight',this)">Poids</span>
+            <span class="convert-tab" onclick="setConvertType('temp',this)">Temperature</span>
+            <span class="convert-tab" onclick="setConvertType('time',this)">Temps</span>
+            <span class="convert-tab" onclick="setConvertType('data',this)">Donnees</span>
         </div>
         <div class="convert-row">
             <input type="number" id="convert-val" value="1" oninput="doConvert()">
@@ -1457,10 +1457,11 @@ const convertData = {
 };
 let convertType = 'length';
 
-function setConvertType(type) {
+function setConvertType(type, el) {
     convertType = type;
-    document.querySelectorAll('.convert-tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
+    document.querySelectorAll('#convert-container .convert-tab').forEach(t => t.classList.remove('active'));
+    if (el) el.classList.add('active');
+    else document.querySelector('#convert-container .convert-tab').classList.add('active');
     const fromSel = document.getElementById('convert-from');
     const toSel = document.getElementById('convert-to');
     const units = convertData[type].units;
@@ -1493,7 +1494,7 @@ function doConvert() {
         `${val} ${units[from]} = ${parseFloat(result.toPrecision(8))} ${units[to]}`;
 }
 
-setConvertType('length');
+setConvertType('length', null);
 
 // === TIRAGE AU SORT ===
 let drawItems = [];
