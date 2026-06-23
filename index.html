@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolBox - Outils Gratuits en Ligne | Roue, Chrono, Generateur</title>
-    <meta name="description" content="ToolBox : 9 outils gratuits en ligne - Roue aleatoire, Generateur de pseudo, De personnalise, Chronometre, Minuteur, Pile ou Face, Nombre aleatoire, Notes, Mot de passe. Rapide, sans inscription.">
+    <title>ToolBox - 18 Outils Gratuits en Ligne | Roue, Chrono, Calculatrice</title>
+    <meta name="description" content="ToolBox : 18 outils gratuits en ligne - Roue, Pseudo, De, Chrono, Minuteur, Pile ou Face, Calculatrice, Compteur, Convertisseur, Tirage au sort, Couleurs, Lorem Ipsum, Todo, et plus. Sans inscription.">
     <meta name="keywords" content="outils en ligne, roue aleatoire, generateur pseudo, de personnalise, chronometre en ligne, minuteur, pile ou face, generateur mot de passe, toolbox, outils gratuits">
     <meta name="author" content="IMADARK">
     <meta name="robots" content="index, follow">
@@ -345,6 +345,139 @@
         }
         #password-strength-bar { height: 100%; border-radius: 3px; transition: all 0.4s; width: 0; }
 
+        /* === CALCULATRICE === */
+        #calc-container { text-align: center; }
+        #calc-display {
+            font-size: 2.5rem; font-family: 'Courier New', monospace;
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px; padding: 20px; text-align: right;
+            margin-bottom: 16px; min-height: 80px; word-break: break-all;
+        }
+        .calc-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 10px; max-width: 360px; margin: 0 auto;
+        }
+        .calc-btn {
+            padding: 18px; font-size: 1.3rem; font-weight: 600; border: none;
+            border-radius: 12px; cursor: pointer; font-family: inherit;
+            background: rgba(20,20,40,0.8); color: #fff; transition: all 0.15s;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .calc-btn:hover { background: rgba(102,126,234,0.2); border-color: #667eea; }
+        .calc-btn.op { background: rgba(102,126,234,0.3); color: #a8b5ff; }
+        .calc-btn.eq { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .calc-btn.danger { color: #e74c3c; }
+        .calc-btn.wide { grid-column: span 2; }
+
+        /* === COMPTEUR === */
+        #counter-container { text-align: center; }
+        #counter-display {
+            font-size: 6rem; font-weight: 800; margin: 40px 0;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .counter-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .counter-btns .btn { min-width: 60px; font-size: 1.5rem; }
+
+        /* === CONVERTISSEUR === */
+        #convert-container {}
+        .convert-row { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .convert-row input { flex: 1; min-width: 120px; }
+        .convert-row select {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 12px; border-radius: 10px; font-size: 1rem; font-family: inherit;
+        }
+        .convert-result { font-size: 1.8rem; text-align: center; margin: 20px 0; color: #f093fb; font-weight: 700; }
+        .convert-tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+        .convert-tab {
+            padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #aaa; transition: all 0.2s;
+        }
+        .convert-tab.active { background: rgba(102,126,234,0.2); border-color: #667eea; color: #fff; }
+
+        /* === TIRAGE AU SORT === */
+        #draw-container { text-align: center; }
+        #draw-inputs { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+        #draw-inputs input { flex: 1; min-width: 150px; }
+        #draw-items { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; justify-content: center; }
+        .draw-item {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px;
+            border-radius: 20px; display: flex; align-items: center; gap: 8px;
+        }
+        .draw-item button { background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 1.1rem; }
+        .draw-item.winner { border-color: #2ecc71; background: rgba(46,204,113,0.15); }
+        #draw-result { font-size: 1.8rem; font-weight: 700; margin-top: 20px; color: #2ecc71; min-height: 40px; }
+
+        /* === COMPTEUR MOTS === */
+        #wordcount-container {}
+        #wordcount-input { min-height: 150px; resize: vertical; }
+        .wc-stats {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px; margin-top: 20px;
+        }
+        .wc-stat {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px; padding: 20px; text-align: center;
+        }
+        .wc-stat .num { font-size: 2rem; font-weight: 800; color: #667eea; }
+        .wc-stat .lbl { font-size: 0.8rem; color: #888; margin-top: 4px; }
+
+        /* === COULEUR === */
+        #color-container { text-align: center; }
+        #color-preview {
+            width: 150px; height: 150px; border-radius: 20px; margin: 20px auto;
+            border: 3px solid rgba(255,255,255,0.1); transition: background 0.3s;
+        }
+        .color-inputs { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+        .color-row { display: flex; gap: 10px; align-items: center; }
+        .color-row label { width: 50px; text-align: right; color: #888; font-weight: 600; }
+        .color-row input[type="text"] { flex: 1; }
+        .color-row input[type="color"] {
+            width: 50px; height: 42px; border: none; border-radius: 10px; cursor: pointer;
+            background: transparent;
+        }
+
+        /* === LOREM IPSUM === */
+        #lorem-container {}
+        .lorem-config { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .lorem-config label { color: #888; }
+        #lorem-output {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px; padding: 20px; line-height: 1.8; color: #ccc;
+            max-height: 400px; overflow-y: auto; margin-top: 20px;
+        }
+
+        /* === LISTE TODO === */
+        #todo-container {}
+        .todo-input-row { display: flex; gap: 10px; margin-bottom: 20px; }
+        .todo-input-row input { flex: 1; }
+        .todo-list { display: flex; flex-direction: column; gap: 8px; }
+        .todo-item {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+            transition: all 0.2s;
+        }
+        .todo-item:hover { border-color: rgba(102,126,234,0.3); }
+        .todo-item.done { opacity: 0.5; }
+        .todo-item.done .todo-text { text-decoration: line-through; }
+        .todo-item input[type="checkbox"] { accent-color: #667eea; width: 20px; height: 20px; cursor: pointer; }
+        .todo-text { flex: 1; color: #ccc; }
+        .todo-del { background: none; border: none; color: #555; cursor: pointer; font-size: 1.2rem; }
+        .todo-del:hover { color: #e74c3c; }
+        .todo-empty { text-align: center; color: #444; padding: 40px 0; }
+        .todo-filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+
+        /* === TEXTE TRANSFORM === */
+        #texttools-container {}
+        #texttools-input { min-height: 120px; resize: vertical; margin-bottom: 16px; }
+        #texttools-output {
+            background: rgba(20,20,40,0.8); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px; padding: 20px; min-height: 80px; line-height: 1.6; color: #ccc;
+            margin-top: 16px; white-space: pre-wrap;
+        }
+        .texttools-btns { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
         /* RESPONSIVE */
         @media (max-width: 600px) {
             header h1 { font-size: 2rem; }
@@ -405,6 +538,42 @@
         <div class="menu-btn" onclick="showPage('password')">
             <span class="icon">🔐</span>
             <div class="label">Mot de Passe</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('calc')">
+            <span class="icon">🧮</span>
+            <div class="label">Calculatrice</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('counter')">
+            <span class="icon">👆</span>
+            <div class="label">Compteur</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('convert')">
+            <span class="icon">📏</span>
+            <div class="label">Convertisseur</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('draw')">
+            <span class="icon">🎯</span>
+            <div class="label">Tirage au Sort</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('wordcount')">
+            <span class="icon">📊</span>
+            <div class="label">Compteur de Mots</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('color')">
+            <span class="icon">🎨</span>
+            <div class="label">Couleurs</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('lorem')">
+            <span class="icon">📄</span>
+            <div class="label">Lorem Ipsum</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('todo')">
+            <span class="icon">✅</span>
+            <div class="label">Liste de Taches</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('texttools')">
+            <span class="icon">🔤</span>
+            <div class="label">Transformateur Texte</div>
         </div>
     </div>
     <footer>
@@ -569,6 +738,200 @@
             <button class="btn" onclick="generatePassword()">Generer</button>
             <button class="btn btn-sm btn-outline" onclick="copyPassword()" style="margin-left:8px">Copier</button>
         </div>
+    </div>
+</div>
+
+<!-- CALCULATRICE -->
+<div id="calc" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🧮 Calculatrice</h2>
+    <div id="calc-container">
+        <div id="calc-display">0</div>
+        <div class="calc-grid">
+            <button class="calc-btn danger" onclick="calcClear()">C</button>
+            <button class="calc-btn danger" onclick="calcBackspace()">⌫</button>
+            <button class="calc-btn op" onclick="calcInput('%')">%</button>
+            <button class="calc-btn op" onclick="calcInput('/')">÷</button>
+            <button class="calc-btn" onclick="calcInput('7')">7</button>
+            <button class="calc-btn" onclick="calcInput('8')">8</button>
+            <button class="calc-btn" onclick="calcInput('9')">9</button>
+            <button class="calc-btn op" onclick="calcInput('*')">×</button>
+            <button class="calc-btn" onclick="calcInput('4')">4</button>
+            <button class="calc-btn" onclick="calcInput('5')">5</button>
+            <button class="calc-btn" onclick="calcInput('6')">6</button>
+            <button class="calc-btn op" onclick="calcInput('-')">−</button>
+            <button class="calc-btn" onclick="calcInput('1')">1</button>
+            <button class="calc-btn" onclick="calcInput('2')">2</button>
+            <button class="calc-btn" onclick="calcInput('3')">3</button>
+            <button class="calc-btn op" onclick="calcInput('+')">+</button>
+            <button class="calc-btn wide" onclick="calcInput('0')">0</button>
+            <button class="calc-btn" onclick="calcInput('.')">.</button>
+            <button class="calc-btn eq" onclick="calcEqual()">=</button>
+        </div>
+    </div>
+</div>
+
+<!-- COMPTEUR -->
+<div id="counter" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>👆 Compteur</h2>
+    <div id="counter-container">
+        <div id="counter-display">0</div>
+        <div class="counter-btns">
+            <button class="btn btn-danger" onclick="counterAdd(-10)">-10</button>
+            <button class="btn btn-danger" onclick="counterAdd(-1)">-1</button>
+            <button class="btn" onclick="counterAdd(1)">+1</button>
+            <button class="btn" onclick="counterAdd(10)">+10</button>
+        </div>
+        <div style="margin-top:20px">
+            <button class="btn btn-sm btn-outline" onclick="counterReset()">Reset</button>
+        </div>
+    </div>
+</div>
+
+<!-- CONVERTISSEUR -->
+<div id="convert" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📏 Convertisseur</h2>
+    <div id="convert-container">
+        <div class="convert-tabs">
+            <span class="convert-tab active" onclick="setConvertType('length')">Longueur</span>
+            <span class="convert-tab" onclick="setConvertType('weight')">Poids</span>
+            <span class="convert-tab" onclick="setConvertType('temp')">Temperature</span>
+            <span class="convert-tab" onclick="setConvertType('time')">Temps</span>
+            <span class="convert-tab" onclick="setConvertType('data')">Donnees</span>
+        </div>
+        <div class="convert-row">
+            <input type="number" id="convert-val" value="1" oninput="doConvert()">
+            <select id="convert-from" onchange="doConvert()"></select>
+        </div>
+        <div style="text-align:center;font-size:1.5rem;color:#667eea;margin:8px 0">⇅</div>
+        <div class="convert-row">
+            <select id="convert-to" onchange="doConvert()"></select>
+        </div>
+        <div class="convert-result" id="convert-result">—</div>
+    </div>
+</div>
+
+<!-- TIRAGE AU SORT -->
+<div id="draw" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🎯 Tirage au Sort</h2>
+    <div id="draw-container">
+        <div id="draw-inputs">
+            <input type="text" id="draw-input" placeholder="Ajouter un participant..." onkeydown="if(event.key==='Enter')addDrawItem()">
+            <button class="btn btn-sm" onclick="addDrawItem()">Ajouter</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;justify-content:center;margin-bottom:16px">
+            <label style="color:#888">Nombre a tirer:</label>
+            <input type="number" id="draw-count" value="1" min="1" style="width:60px;text-align:center">
+        </div>
+        <div id="draw-items"></div>
+        <button class="btn" onclick="doDraw()">Tirer au sort !</button>
+        <div id="draw-result"></div>
+    </div>
+</div>
+
+<!-- COMPTEUR DE MOTS -->
+<div id="wordcount" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📊 Compteur de Mots</h2>
+    <div id="wordcount-container">
+        <textarea id="wordcount-input" placeholder="Colle ou ecris ton texte ici..." oninput="updateWordCount()"></textarea>
+        <div class="wc-stats">
+            <div class="wc-stat"><div class="num" id="wc-chars">0</div><div class="lbl">Caracteres</div></div>
+            <div class="wc-stat"><div class="num" id="wc-chars-ns">0</div><div class="lbl">Sans espaces</div></div>
+            <div class="wc-stat"><div class="num" id="wc-words">0</div><div class="lbl">Mots</div></div>
+            <div class="wc-stat"><div class="num" id="wc-sentences">0</div><div class="lbl">Phrases</div></div>
+            <div class="wc-stat"><div class="num" id="wc-paragraphs">0</div><div class="lbl">Paragraphes</div></div>
+            <div class="wc-stat"><div class="num" id="wc-readtime">0s</div><div class="lbl">Temps de lecture</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- COULEURS -->
+<div id="color" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🎨 Couleurs</h2>
+    <div id="color-container">
+        <div id="color-preview" style="background:#667eea"></div>
+        <div class="color-inputs">
+            <div class="color-row">
+                <label>HEX</label>
+                <input type="text" id="color-hex" value="#667eea" oninput="colorFromHex()">
+                <input type="color" id="color-picker" value="#667eea" oninput="colorFromPicker()">
+            </div>
+            <div class="color-row">
+                <label>R</label>
+                <input type="number" id="color-r" value="102" min="0" max="255" oninput="colorFromRgb()">
+            </div>
+            <div class="color-row">
+                <label>G</label>
+                <input type="number" id="color-g" value="126" min="0" max="255" oninput="colorFromRgb()">
+            </div>
+            <div class="color-row">
+                <label>B</label>
+                <input type="number" id="color-b" value="234" min="0" max="255" oninput="colorFromRgb()">
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:16px">
+            <button class="btn btn-sm" onclick="randomColor()">Couleur aleatoire</button>
+            <button class="btn btn-sm btn-outline" onclick="copyColor()">Copier HEX</button>
+        </div>
+    </div>
+</div>
+
+<!-- LOREM IPSUM -->
+<div id="lorem" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📄 Lorem Ipsum</h2>
+    <div id="lorem-container">
+        <div class="lorem-config">
+            <label>Paragraphes:</label>
+            <input type="number" id="lorem-count" value="3" min="1" max="20" style="width:70px;text-align:center">
+        </div>
+        <div style="text-align:center">
+            <button class="btn" onclick="generateLorem()">Generer</button>
+            <button class="btn btn-sm btn-outline" onclick="copyLorem()" style="margin-left:8px">Copier</button>
+        </div>
+        <div id="lorem-output"></div>
+    </div>
+</div>
+
+<!-- LISTE TODO -->
+<div id="todo" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>✅ Liste de Taches</h2>
+    <div id="todo-container">
+        <div class="todo-input-row">
+            <input type="text" id="todo-input" placeholder="Nouvelle tache..." onkeydown="if(event.key==='Enter')addTodo()">
+            <button class="btn btn-sm" onclick="addTodo()">Ajouter</button>
+        </div>
+        <div class="todo-filters">
+            <span class="convert-tab active" onclick="setTodoFilter('all',this)">Toutes</span>
+            <span class="convert-tab" onclick="setTodoFilter('active',this)">En cours</span>
+            <span class="convert-tab" onclick="setTodoFilter('done',this)">Faites</span>
+        </div>
+        <div class="todo-list" id="todo-list"></div>
+    </div>
+</div>
+
+<!-- TRANSFORMATEUR TEXTE -->
+<div id="texttools" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🔤 Transformateur de Texte</h2>
+    <div id="texttools-container">
+        <textarea id="texttools-input" placeholder="Entre ton texte ici..."></textarea>
+        <div class="texttools-btns">
+            <button class="btn btn-sm" onclick="transformText('upper')">MAJUSCULES</button>
+            <button class="btn btn-sm" onclick="transformText('lower')">minuscules</button>
+            <button class="btn btn-sm" onclick="transformText('title')">Titre</button>
+            <button class="btn btn-sm" onclick="transformText('reverse')">esrevnI</button>
+            <button class="btn btn-sm" onclick="transformText('alternate')">AlTeRnE</button>
+            <button class="btn btn-sm" onclick="transformText('remove-spaces')">SansEspaces</button>
+            <button class="btn btn-sm btn-outline" onclick="copyTextTools()">Copier</button>
+        </div>
+        <div id="texttools-output"></div>
     </div>
 </div>
 
@@ -1033,6 +1396,318 @@ function copyPassword() {
         el.style.borderColor = '#2ecc71';
         setTimeout(() => el.style.borderColor = '', 800);
     }
+}
+
+// === CALCULATRICE ===
+let calcExpr = '0';
+function calcInput(v) {
+    if (calcExpr === '0' && v !== '.') calcExpr = '';
+    calcExpr += v;
+    document.getElementById('calc-display').textContent = calcExpr;
+}
+function calcClear() {
+    calcExpr = '0';
+    document.getElementById('calc-display').textContent = '0';
+}
+function calcBackspace() {
+    calcExpr = calcExpr.slice(0, -1) || '0';
+    document.getElementById('calc-display').textContent = calcExpr;
+}
+function calcEqual() {
+    try {
+        const result = Function('"use strict"; return (' + calcExpr + ')')();
+        calcExpr = String(result);
+        document.getElementById('calc-display').textContent = calcExpr;
+    } catch(e) {
+        document.getElementById('calc-display').textContent = 'Erreur';
+        calcExpr = '0';
+    }
+}
+
+// === COMPTEUR ===
+let counterVal = 0;
+function counterAdd(n) {
+    counterVal += n;
+    document.getElementById('counter-display').textContent = counterVal;
+}
+function counterReset() {
+    counterVal = 0;
+    document.getElementById('counter-display').textContent = '0';
+}
+
+// === CONVERTISSEUR ===
+const convertData = {
+    length: {
+        units: ['mm','cm','m','km','pouces','pieds','miles'],
+        base: [0.001, 0.01, 1, 1000, 0.0254, 0.3048, 1609.344]
+    },
+    weight: {
+        units: ['mg','g','kg','tonnes','oz','lb'],
+        base: [0.001, 1, 1000, 1000000, 28.3495, 453.592]
+    },
+    temp: { units: ['Celsius','Fahrenheit','Kelvin'], base: null },
+    time: {
+        units: ['secondes','minutes','heures','jours','semaines','mois','annees'],
+        base: [1, 60, 3600, 86400, 604800, 2592000, 31536000]
+    },
+    data: {
+        units: ['octets','Ko','Mo','Go','To'],
+        base: [1, 1024, 1048576, 1073741824, 1099511627776]
+    }
+};
+let convertType = 'length';
+
+function setConvertType(type) {
+    convertType = type;
+    document.querySelectorAll('.convert-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    const fromSel = document.getElementById('convert-from');
+    const toSel = document.getElementById('convert-to');
+    const units = convertData[type].units;
+    fromSel.innerHTML = units.map((u,i) => `<option value="${i}">${u}</option>`).join('');
+    toSel.innerHTML = units.map((u,i) => `<option value="${i}"${i===1?' selected':''}>${u}</option>`).join('');
+    doConvert();
+}
+
+function doConvert() {
+    const val = parseFloat(document.getElementById('convert-val').value) || 0;
+    const from = parseInt(document.getElementById('convert-from').value);
+    const to = parseInt(document.getElementById('convert-to').value);
+    let result;
+
+    if (convertType === 'temp') {
+        let celsius;
+        if (from === 0) celsius = val;
+        else if (from === 1) celsius = (val - 32) * 5/9;
+        else celsius = val - 273.15;
+        if (to === 0) result = celsius;
+        else if (to === 1) result = celsius * 9/5 + 32;
+        else result = celsius + 273.15;
+    } else {
+        const bases = convertData[convertType].base;
+        result = val * bases[from] / bases[to];
+    }
+
+    const units = convertData[convertType].units;
+    document.getElementById('convert-result').textContent =
+        `${val} ${units[from]} = ${parseFloat(result.toPrecision(8))} ${units[to]}`;
+}
+
+setConvertType('length');
+
+// === TIRAGE AU SORT ===
+let drawItems = [];
+
+function addDrawItem() {
+    const inp = document.getElementById('draw-input');
+    const val = inp.value.trim();
+    if (!val) return;
+    drawItems.push(val);
+    inp.value = '';
+    renderDrawItems();
+}
+
+function removeDrawItem(i) {
+    drawItems.splice(i, 1);
+    renderDrawItems();
+}
+
+function renderDrawItems(winners) {
+    const c = document.getElementById('draw-items');
+    winners = winners || [];
+    c.innerHTML = drawItems.map((item, i) =>
+        `<div class="draw-item ${winners.includes(item)?'winner':''}"><span>${item}</span><button onclick="removeDrawItem(${i})">×</button></div>`
+    ).join('');
+}
+
+function doDraw() {
+    if (drawItems.length === 0) return;
+    const count = Math.min(parseInt(document.getElementById('draw-count').value) || 1, drawItems.length);
+    const shuffled = [...drawItems].sort(() => Math.random() - 0.5);
+    const winners = shuffled.slice(0, count);
+
+    const el = document.getElementById('draw-result');
+    let ticks = 0;
+    const interval = setInterval(() => {
+        ticks++;
+        const rand = drawItems[Math.floor(Math.random() * drawItems.length)];
+        el.textContent = rand;
+        el.style.color = '#888';
+        if (ticks > 15) {
+            clearInterval(interval);
+            el.style.color = '#2ecc71';
+            el.textContent = '🎉 ' + winners.join(', ') + ' !';
+            renderDrawItems(winners);
+        }
+    }, 80);
+}
+
+// === COMPTEUR DE MOTS ===
+function updateWordCount() {
+    const text = document.getElementById('wordcount-input').value;
+    document.getElementById('wc-chars').textContent = text.length;
+    document.getElementById('wc-chars-ns').textContent = text.replace(/\s/g, '').length;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    document.getElementById('wc-words').textContent = words;
+    document.getElementById('wc-sentences').textContent = text.trim() ? (text.match(/[.!?]+/g) || []).length || (words > 0 ? 1 : 0) : 0;
+    document.getElementById('wc-paragraphs').textContent = text.trim() ? text.split(/\n\s*\n/).filter(p => p.trim()).length || (words > 0 ? 1 : 0) : 0;
+    const mins = Math.floor(words / 200);
+    const secs = Math.round((words % 200) / 200 * 60);
+    document.getElementById('wc-readtime').textContent = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
+}
+
+// === COULEURS ===
+function updateColorUI(hex) {
+    document.getElementById('color-preview').style.background = hex;
+    document.getElementById('color-hex').value = hex;
+    document.getElementById('color-picker').value = hex;
+    const r = parseInt(hex.slice(1,3), 16);
+    const g = parseInt(hex.slice(3,5), 16);
+    const b = parseInt(hex.slice(5,7), 16);
+    document.getElementById('color-r').value = r;
+    document.getElementById('color-g').value = g;
+    document.getElementById('color-b').value = b;
+}
+
+function colorFromHex() {
+    let hex = document.getElementById('color-hex').value;
+    if (/^#[0-9a-fA-F]{6}$/.test(hex)) updateColorUI(hex);
+}
+
+function colorFromPicker() {
+    updateColorUI(document.getElementById('color-picker').value);
+}
+
+function colorFromRgb() {
+    const r = Math.min(255, Math.max(0, parseInt(document.getElementById('color-r').value) || 0));
+    const g = Math.min(255, Math.max(0, parseInt(document.getElementById('color-g').value) || 0));
+    const b = Math.min(255, Math.max(0, parseInt(document.getElementById('color-b').value) || 0));
+    const hex = '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
+    document.getElementById('color-preview').style.background = hex;
+    document.getElementById('color-hex').value = hex;
+    document.getElementById('color-picker').value = hex;
+}
+
+function randomColor() {
+    const hex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
+    updateColorUI(hex);
+}
+
+function copyColor() {
+    navigator.clipboard.writeText(document.getElementById('color-hex').value);
+}
+
+// === LOREM IPSUM ===
+const LOREM_SENTENCES = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+    "Nulla facilisi morbi tempus iaculis urna id volutpat lacus.",
+    "Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus.",
+    "Viverra accumsan in nisl nisi scelerisque eu ultrices vitae.",
+    "Eget nulla facilisi etiam dignissim diam quis enim lobortis.",
+    "Pretium quam vulputate dignissim suspendisse in est ante in nibh.",
+    "Amet risus nullam eget felis eget nunc lobortis mattis.",
+    "Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in.",
+    "Sagittis id consectetur purus ut faucibus pulvinar elementum integer.",
+    "Consequat semper viverra nam libero justo laoreet sit amet cursus.",
+    "Pellentesque habitant morbi tristique senectus et netus et malesuada fames."
+];
+
+function generateLorem() {
+    const count = parseInt(document.getElementById('lorem-count').value) || 3;
+    let paragraphs = [];
+    for (let p = 0; p < count; p++) {
+        const numSentences = 3 + Math.floor(Math.random() * 4);
+        let sentences = [];
+        for (let s = 0; s < numSentences; s++) {
+            sentences.push(LOREM_SENTENCES[Math.floor(Math.random() * LOREM_SENTENCES.length)]);
+        }
+        paragraphs.push(sentences.join(' '));
+    }
+    document.getElementById('lorem-output').innerHTML = paragraphs.map(p => `<p style="margin-bottom:16px">${p}</p>`).join('');
+}
+
+function copyLorem() {
+    const text = document.getElementById('lorem-output').innerText;
+    if (text) navigator.clipboard.writeText(text);
+}
+
+// === LISTE TODO ===
+let todos = JSON.parse(localStorage.getItem('toolbox-todos') || '[]');
+let todoFilter = 'all';
+
+function renderTodos() {
+    const list = document.getElementById('todo-list');
+    let filtered = todos;
+    if (todoFilter === 'active') filtered = todos.filter(t => !t.done);
+    if (todoFilter === 'done') filtered = todos.filter(t => t.done);
+
+    if (filtered.length === 0) {
+        list.innerHTML = '<div class="todo-empty">Aucune tache</div>';
+        return;
+    }
+    list.innerHTML = filtered.map((t, i) => {
+        const realIdx = todos.indexOf(t);
+        return `<div class="todo-item ${t.done?'done':''}">
+            <input type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${realIdx})">
+            <span class="todo-text">${escapeHtml(t.text)}</span>
+            <button class="todo-del" onclick="deleteTodo(${realIdx})">×</button>
+        </div>`;
+    }).join('');
+}
+
+function addTodo() {
+    const inp = document.getElementById('todo-input');
+    const text = inp.value.trim();
+    if (!text) return;
+    todos.push({ text, done: false });
+    localStorage.setItem('toolbox-todos', JSON.stringify(todos));
+    inp.value = '';
+    renderTodos();
+}
+
+function toggleTodo(i) {
+    todos[i].done = !todos[i].done;
+    localStorage.setItem('toolbox-todos', JSON.stringify(todos));
+    renderTodos();
+}
+
+function deleteTodo(i) {
+    todos.splice(i, 1);
+    localStorage.setItem('toolbox-todos', JSON.stringify(todos));
+    renderTodos();
+}
+
+function setTodoFilter(f, el) {
+    todoFilter = f;
+    el.parentElement.querySelectorAll('.convert-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    renderTodos();
+}
+
+renderTodos();
+
+// === TRANSFORMATEUR TEXTE ===
+function transformText(type) {
+    const text = document.getElementById('texttools-input').value;
+    let result = '';
+    switch(type) {
+        case 'upper': result = text.toUpperCase(); break;
+        case 'lower': result = text.toLowerCase(); break;
+        case 'title': result = text.replace(/\b\w/g, c => c.toUpperCase()); break;
+        case 'reverse': result = text.split('').reverse().join(''); break;
+        case 'alternate': result = text.split('').map((c,i) => i%2===0 ? c.toUpperCase() : c.toLowerCase()).join(''); break;
+        case 'remove-spaces': result = text.replace(/\s+/g, ''); break;
+    }
+    document.getElementById('texttools-output').textContent = result;
+}
+
+function copyTextTools() {
+    const text = document.getElementById('texttools-output').textContent;
+    if (text) navigator.clipboard.writeText(text);
 }
 </script>
 
