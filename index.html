@@ -478,6 +478,44 @@
         }
         .texttools-btns { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 
+        /* === ADS === */
+        .ad-slot {
+            background: rgba(20,20,40,0.5); border: 1px dashed rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 10px; text-align: center;
+            margin: 20px auto; max-width: 728px; min-height: 90px;
+            display: flex; align-items: center; justify-content: center;
+            color: #333; font-size: 0.75rem;
+        }
+        .ad-slot-page { margin: 24px auto; }
+
+        /* === COOKIE BANNER === */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(15,15,30,0.95); backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 16px 24px; display: flex; align-items: center;
+            justify-content: center; gap: 16px; flex-wrap: wrap;
+        }
+        #cookie-banner.hidden { display: none; }
+        #cookie-banner p { color: #aaa; font-size: 0.85rem; max-width: 600px; }
+        #cookie-banner a { color: #667eea; }
+
+        /* === DONATE === */
+        .donate-banner {
+            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(240,147,251,0.1));
+            border: 1px solid rgba(102,126,234,0.2); border-radius: 14px;
+            padding: 20px; text-align: center; margin: 20px auto; max-width: 500px;
+        }
+        .donate-banner p { color: #aaa; font-size: 0.9rem; margin-bottom: 12px; }
+        .donate-banner .btn { font-size: 0.9rem; }
+
+        /* === LEGAL === */
+        .legal-footer {
+            text-align: center; padding: 30px 20px 20px; color: #333;
+            font-size: 0.75rem; line-height: 1.8; position: relative; z-index: 1;
+        }
+        .legal-footer a { color: #667eea; text-decoration: none; }
+
         /* RESPONSIVE */
         @media (max-width: 600px) {
             header h1 { font-size: 2rem; }
@@ -576,8 +614,23 @@
             <div class="label">Transformateur Texte</div>
         </div>
     </div>
-    <footer>
-        Fait avec ❤️ &mdash; ToolBox 2025
+
+    <!-- PUB ACCUEIL -->
+    <div class="ad-slot" id="ad-home-bottom">
+        <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- DONATION -->
+    <div class="donate-banner">
+        <p>Tu aimes ToolBox ? Soutiens le projet !</p>
+        <a class="btn btn-sm" href="https://buymeacoffee.com/imadark" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+    </div>
+
+    <footer class="legal-footer">
+        Fait avec ❤️ &mdash; ToolBox 2025 &mdash; par IMADARK<br>
+        <a href="#" onclick="showPage('privacy');return false">Politique de confidentialite</a> &bull;
+        <a href="#" onclick="showPage('legal');return false">Mentions legales</a> &bull;
+        <a href="mailto:adil.tadlaoui@gmail.com">Contact</a>
     </footer>
 </div>
 
@@ -933,6 +986,45 @@
         </div>
         <div id="texttools-output"></div>
     </div>
+</div>
+
+<!-- POLITIQUE DE CONFIDENTIALITE -->
+<div id="privacy" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>Politique de Confidentialite</h2>
+    <div style="color:#aaa;line-height:1.8;max-width:700px;margin:0 auto">
+        <p><strong>Derniere mise a jour :</strong> Juin 2025</p>
+        <p>ToolBox est un site gratuit qui propose des outils en ligne. Nous respectons votre vie privee.</p>
+        <h3 style="color:#fff;margin:20px 0 10px">Donnees collectees</h3>
+        <p>Nous ne collectons aucune donnee personnelle. Les notes et listes de taches sont stockees uniquement dans votre navigateur (localStorage) et ne sont jamais envoyees a un serveur.</p>
+        <h3 style="color:#fff;margin:20px 0 10px">Cookies</h3>
+        <p>Nous utilisons des cookies uniquement pour les services publicitaires (Google AdSense) et les statistiques de visite (Google Analytics). Vous pouvez refuser ces cookies via la banniere qui s'affiche lors de votre premiere visite.</p>
+        <h3 style="color:#fff;margin:20px 0 10px">Publicites</h3>
+        <p>Ce site affiche des publicites fournies par Google AdSense. Google peut utiliser des cookies pour afficher des annonces basees sur vos visites precedentes. Vous pouvez desactiver la personnalisation des annonces sur <a href="https://www.google.com/settings/ads" target="_blank" style="color:#667eea">les parametres Google Ads</a>.</p>
+        <h3 style="color:#fff;margin:20px 0 10px">Contact</h3>
+        <p>Pour toute question : <a href="mailto:adil.tadlaoui@gmail.com" style="color:#667eea">adil.tadlaoui@gmail.com</a></p>
+    </div>
+</div>
+
+<!-- MENTIONS LEGALES -->
+<div id="legal" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>Mentions Legales</h2>
+    <div style="color:#aaa;line-height:1.8;max-width:700px;margin:0 auto">
+        <h3 style="color:#fff;margin:20px 0 10px">Editeur du site</h3>
+        <p>ToolBox est edite par IMADARK.<br>Contact : <a href="mailto:adil.tadlaoui@gmail.com" style="color:#667eea">adil.tadlaoui@gmail.com</a></p>
+        <h3 style="color:#fff;margin:20px 0 10px">Hebergement</h3>
+        <p>Ce site est heberge par GitHub Pages (GitHub, Inc. - 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).</p>
+        <h3 style="color:#fff;margin:20px 0 10px">Propriete intellectuelle</h3>
+        <p>L'ensemble du contenu de ce site (textes, code, design) est la propriete de IMADARK. Toute reproduction est interdite sans autorisation.</p>
+    </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="hidden">
+    <p>Ce site utilise des cookies pour les publicites et les statistiques. En continuant, tu acceptes leur utilisation. <a href="#" onclick="showPage('privacy');return false">En savoir plus</a></p>
+    <button class="btn btn-sm" onclick="acceptCookies()">Accepter</button>
+    <button class="btn btn-sm btn-outline" onclick="refuseCookies()">Refuser</button>
 </div>
 
 <script>
@@ -1709,6 +1801,41 @@ function transformText(type) {
 function copyTextTools() {
     const text = document.getElementById('texttools-output').textContent;
     if (text) navigator.clipboard.writeText(text);
+}
+
+// === COOKIES ===
+(function() {
+    const consent = localStorage.getItem('toolbox-cookies');
+    if (!consent) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+    } else if (consent === 'accepted') {
+        loadAds();
+    }
+})();
+
+function acceptCookies() {
+    localStorage.setItem('toolbox-cookies', 'accepted');
+    document.getElementById('cookie-banner').classList.add('hidden');
+    loadAds();
+}
+
+function refuseCookies() {
+    localStorage.setItem('toolbox-cookies', 'refused');
+    document.getElementById('cookie-banner').classList.add('hidden');
+}
+
+function loadAds() {
+    // Google AdSense - remplace ca-pub-XXXXXXXXXX par ton vrai ID AdSense
+    if (document.querySelector('.adsbygoogle-loaded')) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    // REMPLACE cette valeur par ton vrai ca-pub quand tu auras ton compte AdSense
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX';
+    script.onerror = function() {};
+    document.head.appendChild(script);
+    document.querySelector('.adsbygoogle-loaded') || document.body.classList.add('adsbygoogle-loaded');
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
 }
 </script>
 
