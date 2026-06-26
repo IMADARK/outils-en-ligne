@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolBox - 24 Outils Gratuits en Ligne | Roue, Chrono, Calculatrice, QR Code, Morse</title>
-    <meta name="description" content="ToolBox : 24 outils gratuits en ligne - Roue, Pseudo, De, Chrono, Minuteur, Pile ou Face, Calculatrice, Compteur, Convertisseur, Tirage au sort, Couleurs, Lorem Ipsum, Todo, et plus. Sans inscription.">
+    <title>ToolBox - 34 Outils Gratuits en Ligne | Roue, Chrono, Calculatrice, QR Code, Morse</title>
+    <meta name="description" content="ToolBox : 34 outils gratuits en ligne - Roue, Pseudo, De, Chrono, Minuteur, Pile ou Face, Calculatrice, Compteur, Convertisseur, Tirage au sort, Couleurs, Lorem Ipsum, Todo, et plus. Sans inscription.">
     <meta name="keywords" content="outils en ligne, roue aleatoire, generateur pseudo, de personnalise, chronometre en ligne, minuteur, pile ou face, generateur mot de passe, toolbox, outils gratuits">
     <meta name="author" content="IMADARK">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://imadark.github.io/toolbox/">
     <!-- Open Graph (reseaux sociaux) -->
-    <meta property="og:title" content="ToolBox - 24 Outils Gratuits en Ligne">
+    <meta property="og:title" content="ToolBox - 34 Outils Gratuits en Ligne">
     <meta property="og:description" content="Roue aleatoire, generateur de pseudo, chronometre, de, minuteur, pile ou face, calculatrice, convertisseur et plus. Gratuit, rapide, sans inscription.">
     <meta property="og:url" content="https://imadark.github.io/toolbox/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ToolBox - 24 Outils Gratuits en Ligne">
-    <meta name="twitter:description" content="Roue, chrono, calculatrice, convertisseur, generateur de pseudo, de, minuteur... 24 outils gratuits au meme endroit.">
+    <meta name="twitter:title" content="ToolBox - 34 Outils Gratuits en Ligne">
+    <meta name="twitter:description" content="Roue, chrono, calculatrice, convertisseur, generateur de pseudo, de, minuteur... 34 outils gratuits au meme endroit.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧰</text></svg>">
     <!-- Structured Data for Google -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ToolBox","url":"https://imadark.github.io/toolbox/","description":"24 outils gratuits en ligne : roue, chrono, calculatrice, convertisseur, generateur de pseudo et mot de passe, et plus.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"IMADARK"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ToolBox","url":"https://imadark.github.io/toolbox/","description":"34 outils gratuits en ligne : roue, chrono, calculatrice, convertisseur, generateur de pseudo et mot de passe, et plus.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"IMADARK"}}</script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KQKJYFZ49"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3KQKJYFZ49');</script>
@@ -663,6 +663,46 @@
             <span class="icon">📡</span>
             <div class="label">Code Morse</div>
         </div>
+        <div class="menu-btn" onclick="showPage('stopwatch2')">
+            <span class="icon">⏱️</span>
+            <div class="label">Temps de Reaction</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('flashcard')">
+            <span class="icon">🃏</span>
+            <div class="label">Flashcards</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('gradient')">
+            <span class="icon">🌈</span>
+            <div class="label">Generateur Gradient</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('emoji')">
+            <span class="icon">😀</span>
+            <div class="label">Chercheur Emoji</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('breathe')">
+            <span class="icon">🧘</span>
+            <div class="label">Respiration</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('binary')">
+            <span class="icon">💻</span>
+            <div class="label">Convertisseur Binaire</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('speed')">
+            <span class="icon">📖</span>
+            <div class="label">Vitesse de Frappe</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('roman')">
+            <span class="icon">🏛️</span>
+            <div class="label">Chiffres Romains</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('timezone')">
+            <span class="icon">🌍</span>
+            <div class="label">Fuseaux Horaires</div>
+        </div>
+        <div class="menu-btn" onclick="showPage('habit')">
+            <span class="icon">📅</span>
+            <div class="label">Suivi d'Habitudes</div>
+        </div>
     </div>
 
     <!-- PUB ACCUEIL -->
@@ -1162,6 +1202,157 @@
         </div>
         <div id="morse-output" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;min-height:60px;font-size:1.2rem;letter-spacing:2px;word-break:break-all"></div>
         <button class="btn btn-sm btn-outline" onclick="navigator.clipboard.writeText(document.getElementById('morse-output').textContent)" style="margin-top:10px">Copier</button>
+    </div>
+</div>
+
+<!-- TEMPS DE REACTION -->
+<div id="stopwatch2" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>⏱️ Test Temps de Reaction</h2>
+    <div style="text-align:center">
+        <div id="reaction-box" style="background:#e74c3c;border-radius:20px;padding:80px 40px;cursor:pointer;margin:20px auto;max-width:500px;font-size:1.5rem;font-weight:700;transition:background 0.3s" onclick="reactionClick()">Clique pour commencer</div>
+        <div id="reaction-result" style="font-size:2rem;font-weight:800;margin-top:20px"></div>
+        <div id="reaction-best" style="color:#aaa;margin-top:10px"></div>
+    </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div id="flashcard" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🃏 Flashcards</h2>
+    <div style="text-align:center;max-width:500px;margin:0 auto">
+        <div style="display:flex;gap:10px;margin-bottom:15px">
+            <input type="text" id="fc-front" placeholder="Question / Recto" style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff">
+            <input type="text" id="fc-back" placeholder="Reponse / Verso" style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff">
+            <button class="btn btn-sm" onclick="addFlashcard()">+</button>
+        </div>
+        <div id="fc-card" onclick="flipCard()" style="background:linear-gradient(135deg,rgba(102,126,234,0.2),rgba(240,147,251,0.2));border:1px solid rgba(102,126,234,0.3);border-radius:20px;padding:60px 30px;cursor:pointer;font-size:1.5rem;font-weight:700;min-height:180px;display:flex;align-items:center;justify-content:center;margin:15px 0">Ajoute des cartes pour commencer</div>
+        <div style="display:flex;gap:10px;justify-content:center">
+            <button class="btn btn-sm" onclick="prevCard()">← Precedent</button>
+            <span id="fc-counter" style="color:#aaa;line-height:38px">0/0</span>
+            <button class="btn btn-sm" onclick="nextCard()">Suivant →</button>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="shuffleCards()" style="margin-top:10px">🔀 Melanger</button>
+    </div>
+</div>
+
+<!-- GRADIENT GENERATOR -->
+<div id="gradient" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🌈 Generateur de Gradient</h2>
+    <div style="text-align:center;max-width:500px;margin:0 auto">
+        <div id="gradient-preview" style="height:200px;border-radius:20px;margin-bottom:20px;background:linear-gradient(90deg,#667eea,#f093fb)"></div>
+        <div style="display:flex;gap:15px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:15px">
+            <div><label style="color:#aaa">Couleur 1</label><br><input type="color" id="grad-c1" value="#667eea" onchange="updateGradient()" style="width:60px;height:40px;border:none;border-radius:8px;cursor:pointer"></div>
+            <div><label style="color:#aaa">Couleur 2</label><br><input type="color" id="grad-c2" value="#f093fb" onchange="updateGradient()" style="width:60px;height:40px;border:none;border-radius:8px;cursor:pointer"></div>
+            <div><label style="color:#aaa">Angle</label><br><input type="range" id="grad-angle" min="0" max="360" value="90" onchange="updateGradient()" style="width:100px"></div>
+        </div>
+        <div id="gradient-css" style="background:rgba(0,0,0,0.3);border-radius:10px;padding:12px;font-family:monospace;font-size:0.85rem;color:#aaa;word-break:break-all">background: linear-gradient(90deg, #667eea, #f093fb);</div>
+        <button class="btn btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('gradient-css').textContent)" style="margin-top:10px">Copier le CSS</button>
+        <button class="btn btn-sm btn-outline" onclick="randomGradient()" style="margin-top:10px">🎲 Aleatoire</button>
+    </div>
+</div>
+
+<!-- EMOJI SEARCH -->
+<div id="emoji" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>😀 Chercheur d'Emoji</h2>
+    <div style="text-align:center;max-width:600px;margin:0 auto">
+        <input type="text" id="emoji-search" placeholder="Cherche un emoji... (ex: coeur, feu, rire)" oninput="searchEmoji()" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;margin-bottom:15px">
+        <div id="emoji-results" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center"></div>
+        <div id="emoji-copied" style="color:#2ecc71;margin-top:10px;opacity:0;transition:opacity 0.3s"></div>
+    </div>
+</div>
+
+<!-- RESPIRATION -->
+<div id="breathe" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🧘 Exercice de Respiration</h2>
+    <div style="text-align:center">
+        <div id="breathe-circle" style="width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,rgba(102,126,234,0.3),rgba(240,147,251,0.3));border:3px solid rgba(102,126,234,0.5);margin:30px auto;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;transition:transform 4s ease-in-out">Pret ?</div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:20px">
+            <button class="btn" onclick="startBreathing()">Commencer</button>
+            <button class="btn btn-outline" onclick="stopBreathing()">Arreter</button>
+        </div>
+        <div style="margin-top:15px;color:#aaa;font-size:0.9rem">Technique 4-7-8 : Inspire 4s, Retiens 7s, Expire 8s</div>
+    </div>
+</div>
+
+<!-- BINARY CONVERTER -->
+<div id="binary" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>💻 Convertisseur Binaire</h2>
+    <div style="text-align:center;max-width:500px;margin:0 auto">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin-bottom:15px">
+            <label style="color:#aaa">Texte / Nombre</label><br>
+            <input type="text" id="bin-text" placeholder="Salut" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;margin:10px 0">
+            <button class="btn btn-sm" onclick="textToBin()">→ Binaire</button>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin-bottom:15px">
+            <label style="color:#aaa">Binaire</label><br>
+            <input type="text" id="bin-binary" placeholder="01001000 01101001" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;margin:10px 0">
+            <button class="btn btn-sm" onclick="binToText()">→ Texte</button>
+        </div>
+        <div id="bin-result" style="font-size:1.1rem;font-weight:600;margin-top:10px;word-break:break-all"></div>
+    </div>
+</div>
+
+<!-- VITESSE DE FRAPPE -->
+<div id="speed" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📖 Test Vitesse de Frappe</h2>
+    <div style="text-align:center;max-width:600px;margin:0 auto">
+        <div id="speed-text" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;font-size:1.2rem;line-height:1.8;margin-bottom:15px;text-align:left;color:#aaa"></div>
+        <textarea id="speed-input" placeholder="Commence a taper ici..." oninput="checkTyping()" style="width:100%;height:80px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;resize:none"></textarea>
+        <div style="display:flex;gap:20px;justify-content:center;margin-top:15px">
+            <div><span style="color:#aaa">Temps</span><br><strong id="speed-time">0s</strong></div>
+            <div><span style="color:#aaa">Mots/min</span><br><strong id="speed-wpm">0</strong></div>
+            <div><span style="color:#aaa">Precision</span><br><strong id="speed-acc">100%</strong></div>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetTyping()" style="margin-top:15px">Recommencer</button>
+    </div>
+</div>
+
+<!-- CHIFFRES ROMAINS -->
+<div id="roman" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🏛️ Convertisseur Chiffres Romains</h2>
+    <div style="text-align:center;max-width:400px;margin:0 auto">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin-bottom:15px">
+            <label style="color:#aaa">Nombre → Romain</label><br>
+            <input type="number" id="roman-num" placeholder="2024" style="padding:10px;width:150px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;margin:10px 0">
+            <button class="btn btn-sm" onclick="toRoman()">Convertir</button>
+            <div id="roman-result1" style="font-size:2rem;font-weight:800;margin-top:10px"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px">
+            <label style="color:#aaa">Romain → Nombre</label><br>
+            <input type="text" id="roman-text" placeholder="MMXXIV" style="padding:10px;width:150px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;margin:10px 0;text-transform:uppercase">
+            <button class="btn btn-sm" onclick="fromRoman()">Convertir</button>
+            <div id="roman-result2" style="font-size:2rem;font-weight:800;margin-top:10px"></div>
+        </div>
+    </div>
+</div>
+
+<!-- FUSEAUX HORAIRES -->
+<div id="timezone" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>🌍 Fuseaux Horaires</h2>
+    <div style="text-align:center;max-width:600px;margin:0 auto">
+        <div id="tz-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px"></div>
+        <button class="btn btn-sm btn-outline" onclick="updateTimezones()" style="margin-top:15px">🔄 Rafraichir</button>
+    </div>
+</div>
+
+<!-- SUIVI D'HABITUDES -->
+<div id="habit" class="page">
+    <button class="back-btn" onclick="goHome()">← Retour</button>
+    <h2>📅 Suivi d'Habitudes</h2>
+    <div style="text-align:center;max-width:500px;margin:0 auto">
+        <div style="display:flex;gap:10px;margin-bottom:15px">
+            <input type="text" id="habit-input" placeholder="Nouvelle habitude..." style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff" onkeydown="if(event.key==='Enter')addHabit()">
+            <button class="btn btn-sm" onclick="addHabit()">Ajouter</button>
+        </div>
+        <div id="habit-list"></div>
     </div>
 </div>
 
@@ -2006,6 +2197,64 @@ const MORSE_MAP={'A':'.-','B':'-...','C':'-.-.','D':'-..','E':'.','F':'..-.','G'
 const MORSE_REV=Object.fromEntries(Object.entries(MORSE_MAP).map(([k,v])=>[v,k]));
 function toMorse(){const text=document.getElementById('morse-input').value.toUpperCase();document.getElementById('morse-output').textContent=text.split('').map(c=>MORSE_MAP[c]||c).join(' ');}
 function fromMorse(){const morse=document.getElementById('morse-input').value.trim();document.getElementById('morse-output').textContent=morse.split(' / ').map(word=>word.split(' ').map(c=>MORSE_REV[c]||c).join('')).join(' ');}
+
+// === TEMPS DE REACTION ===
+let reactionState=0,reactionTimeout=null,reactionStart=0,reactionBest=Infinity;
+function reactionClick(){const box=document.getElementById('reaction-box'),res=document.getElementById('reaction-result');if(reactionState===0){reactionState=1;box.style.background='#e74c3c';box.textContent='Attends le vert...';res.textContent='';reactionTimeout=setTimeout(()=>{reactionState=2;box.style.background='#2ecc71';box.textContent='CLIQUE !';reactionStart=Date.now();},1000+Math.random()*4000);}else if(reactionState===1){clearTimeout(reactionTimeout);box.style.background='#e74c3c';box.textContent='Trop tot ! Clique pour reessayer';reactionState=0;}else if(reactionState===2){const time=Date.now()-reactionStart;res.textContent=time+' ms';if(time<reactionBest){reactionBest=time;document.getElementById('reaction-best').textContent='Meilleur : '+time+' ms';}box.style.background='#e74c3c';box.textContent='Clique pour reessayer';reactionState=0;}}
+
+// === FLASHCARDS ===
+let flashcards=JSON.parse(localStorage.getItem('toolbox-fc')||'[]'),fcIndex=0,fcFlipped=false;
+function renderFC(){const card=document.getElementById('fc-card'),counter=document.getElementById('fc-counter');if(!flashcards.length){card.textContent='Ajoute des cartes pour commencer';counter.textContent='0/0';return;}fcFlipped=false;card.textContent=flashcards[fcIndex].front;counter.textContent=(fcIndex+1)+'/'+flashcards.length;}
+function addFlashcard(){const f=document.getElementById('fc-front').value.trim(),b=document.getElementById('fc-back').value.trim();if(!f||!b)return;flashcards.push({front:f,back:b});localStorage.setItem('toolbox-fc',JSON.stringify(flashcards));document.getElementById('fc-front').value='';document.getElementById('fc-back').value='';renderFC();}
+function flipCard(){if(!flashcards.length)return;fcFlipped=!fcFlipped;document.getElementById('fc-card').textContent=fcFlipped?flashcards[fcIndex].back:flashcards[fcIndex].front;}
+function nextCard(){if(!flashcards.length)return;fcIndex=(fcIndex+1)%flashcards.length;renderFC();}
+function prevCard(){if(!flashcards.length)return;fcIndex=(fcIndex-1+flashcards.length)%flashcards.length;renderFC();}
+function shuffleCards(){for(let i=flashcards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[flashcards[i],flashcards[j]]=[flashcards[j],flashcards[i]];}fcIndex=0;renderFC();}
+renderFC();
+
+// === GRADIENT ===
+function updateGradient(){const c1=document.getElementById('grad-c1').value,c2=document.getElementById('grad-c2').value,a=document.getElementById('grad-angle').value;const css='background: linear-gradient('+a+'deg, '+c1+', '+c2+');';document.getElementById('gradient-preview').style.background='linear-gradient('+a+'deg,'+c1+','+c2+')';document.getElementById('gradient-css').textContent=css;}
+function randomGradient(){const r=()=>'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');document.getElementById('grad-c1').value=r();document.getElementById('grad-c2').value=r();document.getElementById('grad-angle').value=Math.floor(Math.random()*360);updateGradient();}
+
+// === EMOJI SEARCH ===
+const EMOJI_DATA=[['😀','sourire'],['😂','rire pleure'],['🥹','emu larme'],['😍','amour yeux coeur'],['🥰','amour bisou'],['😎','cool lunettes'],['🤔','reflechir penser'],['😴','dormir fatigue'],['🤯','esprit explose choque'],['😱','peur cri'],['🥳','fete anniversaire'],['😈','diable mechant'],['👻','fantome halloween'],['💀','crane mort'],['🤡','clown'],['👽','alien extraterrestre'],['🤖','robot'],['❤️','coeur rouge amour'],['🧡','coeur orange'],['💛','coeur jaune'],['💚','coeur vert'],['💙','coeur bleu'],['💜','coeur violet'],['🖤','coeur noir'],['🤍','coeur blanc'],['💔','coeur brise'],['🔥','feu flamme chaud'],['⭐','etoile'],['🌟','etoile brillante'],['✨','etincelle magie'],['🎉','confetti fete'],['🎊','celebration'],['🎁','cadeau'],['🏆','trophee victoire'],['⚽','football ballon'],['🏀','basket'],['🎮','jeu manette gaming'],['🎲','de hasard'],['🎵','musique note'],['🎸','guitare'],['🎤','micro chanter'],['📱','telephone mobile'],['💻','ordinateur pc'],['⌨️','clavier'],['🖱️','souris'],['📷','photo appareil'],['🔑','cle'],['🔒','cadenas ferme'],['🔓','cadenas ouvert'],['💡','ampoule idee'],['📚','livres etude'],['✏️','crayon ecrire'],['📌','punaise'],['✅','valide check'],['❌','croix erreur non'],['⚠️','attention danger'],['🚀','fusee space'],['🌙','lune nuit'],['☀️','soleil'],['🌧️','pluie'],['❄️','neige froid'],['🍕','pizza'],['🍔','burger hamburger'],['🍟','frites'],['🍦','glace'],['☕','cafe'],['🍺','biere'],['🐱','chat'],['🐶','chien'],['🦁','lion'],['🐺','loup'],['🦊','renard'],['🐻','ours'],['👍','pouce bien ok'],['👎','pouce bas mal'],['👏','applaudir bravo'],['🙏','prier merci'],['💪','muscle force'],['✌️','victoire paix'],['🤝','poignee main deal'],['👋','salut coucou']];
+function searchEmoji(){const q=document.getElementById('emoji-search').value.toLowerCase().trim();const res=document.getElementById('emoji-results');if(!q){res.innerHTML=EMOJI_DATA.slice(0,40).map(e=>'<span onclick="copyEmoji(\''+e[0]+'\')" style="font-size:2rem;cursor:pointer;padding:5px;border-radius:8px;transition:transform 0.2s" title="'+e[1]+'">'+e[0]+'</span>').join('');return;}const matches=EMOJI_DATA.filter(e=>e[1].includes(q));res.innerHTML=matches.length?matches.map(e=>'<span onclick="copyEmoji(\''+e[0]+'\')" style="font-size:2rem;cursor:pointer;padding:5px" title="'+e[1]+'">'+e[0]+'</span>').join(''):'<span style="color:#aaa">Aucun emoji trouve</span>';}
+function copyEmoji(e){navigator.clipboard.writeText(e);const el=document.getElementById('emoji-copied');el.textContent=e+' copie !';el.style.opacity='1';setTimeout(()=>el.style.opacity='0',1500);}
+searchEmoji();
+
+// === RESPIRATION ===
+let breatheInterval=null;
+function startBreathing(){stopBreathing();const circle=document.getElementById('breathe-circle');let phase=0;const phases=[{text:'Inspire...',dur:4000,scale:1.4},{text:'Retiens...',dur:7000,scale:1.4},{text:'Expire...',dur:8000,scale:1}];function run(){const p=phases[phase%3];circle.textContent=p.text;circle.style.transform='scale('+p.scale+')';phase++;breatheInterval=setTimeout(run,p.dur);}run();}
+function stopBreathing(){clearTimeout(breatheInterval);const circle=document.getElementById('breathe-circle');circle.textContent='Pret ?';circle.style.transform='scale(1)';}
+
+// === BINARY ===
+function textToBin(){const text=document.getElementById('bin-text').value;const bin=text.split('').map(c=>c.charCodeAt(0).toString(2).padStart(8,'0')).join(' ');document.getElementById('bin-binary').value=bin;document.getElementById('bin-result').textContent=bin;}
+function binToText(){const bin=document.getElementById('bin-binary').value.trim();const text=bin.split(' ').map(b=>String.fromCharCode(parseInt(b,2))).join('');document.getElementById('bin-text').value=text;document.getElementById('bin-result').textContent=text;}
+
+// === VITESSE DE FRAPPE ===
+const SPEED_TEXTS=['Le renard brun et rapide saute par dessus le chien paresseux qui dort tranquillement dans le jardin.','La programmation est un art qui demande patience et creativite pour resoudre des problemes complexes.','Les etoiles brillent dans le ciel nocturne comme des diamants sur un velours noir infini.','Chaque jour est une nouvelle opportunite de creer quelque chose de magnifique et utile.'];
+let speedStart=null,speedTimer=null,speedDone=false;
+function resetTyping(){speedStart=null;speedDone=false;clearInterval(speedTimer);document.getElementById('speed-input').value='';document.getElementById('speed-time').textContent='0s';document.getElementById('speed-wpm').textContent='0';document.getElementById('speed-acc').textContent='100%';document.getElementById('speed-text').textContent=SPEED_TEXTS[Math.floor(Math.random()*SPEED_TEXTS.length)];}
+function checkTyping(){if(speedDone)return;const target=document.getElementById('speed-text').textContent;const typed=document.getElementById('speed-input').value;if(!speedStart){speedStart=Date.now();speedTimer=setInterval(()=>{document.getElementById('speed-time').textContent=Math.floor((Date.now()-speedStart)/1000)+'s';},200);}let correct=0;for(let i=0;i<typed.length;i++){if(typed[i]===target[i])correct++;}const acc=typed.length?Math.round(correct/typed.length*100):100;document.getElementById('speed-acc').textContent=acc+'%';const mins=(Date.now()-speedStart)/60000;const words=typed.split(' ').filter(w=>w).length;document.getElementById('speed-wpm').textContent=mins>0?Math.round(words/mins):0;if(typed.length>=target.length){speedDone=true;clearInterval(speedTimer);}}
+resetTyping();
+
+// === CHIFFRES ROMAINS ===
+function toRoman(){let num=parseInt(document.getElementById('roman-num').value);if(!num||num<1||num>3999){document.getElementById('roman-result1').textContent='Entre 1-3999';return;}const vals=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];let result='';for(const[v,s]of vals){while(num>=v){result+=s;num-=v;}}document.getElementById('roman-result1').textContent=result;}
+function fromRoman(){const s=document.getElementById('roman-text').value.toUpperCase();const map={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};let result=0;for(let i=0;i<s.length;i++){const cur=map[s[i]]||0,next=map[s[i+1]]||0;result+=cur<next?-cur:cur;}document.getElementById('roman-result2').textContent=result||'Invalide';}
+
+// === FUSEAUX HORAIRES ===
+const TZ_LIST=[['Paris','Europe/Paris'],['Londres','Europe/London'],['New York','America/New_York'],['Los Angeles','America/Los_Angeles'],['Tokyo','Asia/Tokyo'],['Dubai','Asia/Dubai'],['Sydney','Australia/Sydney'],['Casablanca','Africa/Casablanca'],['Moscou','Europe/Moscow'],['Pekin','Asia/Shanghai'],['New Delhi','Asia/Kolkata'],['Sao Paulo','America/Sao_Paulo']];
+function updateTimezones(){const el=document.getElementById('tz-list');el.innerHTML=TZ_LIST.map(([name,tz])=>{const t=new Date().toLocaleTimeString('fr-FR',{timeZone:tz,hour:'2-digit',minute:'2-digit'});const d=new Date().toLocaleDateString('fr-FR',{timeZone:tz,weekday:'short',day:'numeric',month:'short'});return'<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:15px"><div style="color:#aaa;font-size:0.85rem">'+name+'</div><div style="font-size:1.8rem;font-weight:800">'+t+'</div><div style="color:#aaa;font-size:0.8rem">'+d+'</div></div>';}).join('');}
+updateTimezones();setInterval(updateTimezones,30000);
+
+// === SUIVI D'HABITUDES ===
+let habits=JSON.parse(localStorage.getItem('toolbox-habits')||'[]');
+function getToday(){return new Date().toISOString().split('T')[0];}
+function addHabit(){const inp=document.getElementById('habit-input'),name=inp.value.trim();if(!name)return;habits.push({name,days:{}});localStorage.setItem('toolbox-habits',JSON.stringify(habits));inp.value='';renderHabits();}
+function toggleHabitDay(i,day){habits[i].days[day]=!habits[i].days[day];localStorage.setItem('toolbox-habits',JSON.stringify(habits));renderHabits();}
+function deleteHabit(i){habits.splice(i,1);localStorage.setItem('toolbox-habits',JSON.stringify(habits));renderHabits();}
+function renderHabits(){const el=document.getElementById('habit-list');const today=new Date();const days=[];for(let d=6;d>=0;d--){const dt=new Date(today);dt.setDate(dt.getDate()-d);days.push(dt.toISOString().split('T')[0]);}const dayLabels=days.map(d=>{const dt=new Date(d);return['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'][dt.getDay()];});el.innerHTML=habits.map((h,i)=>{let html='<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:15px;margin-bottom:10px;text-align:left"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><strong>'+h.name+'</strong><span onclick="deleteHabit('+i+')" style="cursor:pointer;color:#e74c3c;font-size:0.8rem">Supprimer</span></div><div style="display:flex;gap:8px;justify-content:center">';days.forEach((d,j)=>{const checked=h.days[d];html+='<div onclick="toggleHabitDay('+i+',&quot;'+d+'&quot;)" style="cursor:pointer;text-align:center"><div style="color:#aaa;font-size:0.7rem">'+dayLabels[j]+'</div><div style="width:32px;height:32px;border-radius:8px;background:'+(checked?'#2ecc71':'rgba(255,255,255,0.05)')+';border:1px solid '+(checked?'#2ecc71':'rgba(255,255,255,0.1)')+';display:flex;align-items:center;justify-content:center;font-size:0.8rem">'+(checked?'✓':'')+'</div></div>';});html+='</div></div>';return html;}).join('');}
+renderHabits();
 
 // === COOKIES ===
 (function() {
